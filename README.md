@@ -76,7 +76,7 @@ Global Clock supports 4 options:
 
 If the location is `undefined` the location would automaticly output to your location
 
-    EX:
+EX:
 
 ```
 Clock.getTime(location)
