@@ -59,7 +59,7 @@ Global Clock supports 4 options:
     EX:
 
     ```
-    Clock.getDate() // '1/8/2021'
+    Clock.getDate() // '1/8/2021 5:00:00 PM'
     ```
 
 ### **Parameters**
