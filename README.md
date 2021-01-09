@@ -2,7 +2,7 @@
 
 ### **What is this?**
 
-Easily get time and date for any location!
+An Easy and lightweight package for getting time and date for any location!
 
 ### **Installation**
 
@@ -43,7 +43,9 @@ EX:
 EX:
 
     ```
+
     Clock.getFullTime() // '17:00:00'
+
     ```
 
 -   `Clock.getDate(<parameters: type, location>)` - Returns the date
@@ -51,7 +53,9 @@ EX:
 EX:
 
     ```
+
     Clock.getDate() // '1/8/2021'
+
     ```
 
 -   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time in the AM/PM format
@@ -59,7 +63,9 @@ EX:
 EX:
 
     ```
+
     Clock.getDateTime() // '1/8/2021 5:00:00 PM'
+
     ```
 
 -   `Clock.getDateFullTime(<parameters: type, location>)` - Returns the date and the time in military time
@@ -67,7 +73,9 @@ EX:
 EX:
 
     ```
+
     Clock.getDateTime() // '1/8/2021 17:00:00'
+
     ```
 
 ### **Parameters**
