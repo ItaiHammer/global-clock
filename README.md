@@ -32,7 +32,7 @@ Global Clock supports 4 options:
 
 -   `Clock.getTime(<parameters: location>)` - Returns time in the AM/PM format
 
-    EX:
+EX:
 
     ```
     Clock.getTime() // '5:00:00 PM'
@@ -40,7 +40,7 @@ Global Clock supports 4 options:
 
 -   `Clock.getFullTime(<parameters: location>)` - Returns time in military time
 
-    EX:
+EX:
 
     ```
     Clock.getFullTime() // '17:00:00'
@@ -48,7 +48,7 @@ Global Clock supports 4 options:
 
 -   `Clock.getDate(<parameters: type, location>)` - Returns the date
 
-    EX:
+EX:
 
     ```
     Clock.getDate() // '1/8/2021'
@@ -56,7 +56,7 @@ Global Clock supports 4 options:
 
 -   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time in the AM/PM format
 
-    EX:
+EX:
 
     ```
     Clock.getDateTime() // '1/8/2021 5:00:00 PM'
@@ -64,7 +64,7 @@ Global Clock supports 4 options:
 
 -   `Clock.getDateFullTime(<parameters: type, location>)` - Returns the date and the time in military time
 
-    EX:
+EX:
 
     ```
     Clock.getDateTime() // '1/8/2021 17:00:00'
@@ -75,6 +75,7 @@ Global Clock supports 4 options:
 -   `location` _not required_, _not case sensitive_ - Location is the location where you want the time from.
 
 If the location is `undefined` the location would automaticly output to your location
+
 EX:
 
 ```
@@ -116,7 +117,7 @@ Clock.getTime('california') // 5:00:00 PM
 
     If the type is `undefined` the date would automaticly output in this format `mm/dd/yyyy`
 
-    EX:
+EX:
 
 ```
 Clock.getDate(type)
