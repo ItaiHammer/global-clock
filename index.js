@@ -1,9 +1,10 @@
-let Time = {
-    getFullTime,
-    getTime,
+let Clock = {
+    getFullTime: getFullTime,
+    getTime: getTime,
+    getDate: getDate,
 };
 
-async function getFullTime(location) {
+function getFullTime(location) {
     if (location === undefined) {
         let d = new Date();
         let hour = d.getHours();
@@ -21,7 +22,7 @@ async function getFullTime(location) {
     }
 }
 
-async function getTime(location) {
+function getTime(location) {
     if (location === undefined) {
         let d = new Date();
         let hour =
@@ -54,4 +55,90 @@ async function getTime(location) {
     }
 }
 
-module.exports.Time = Time;
+function getDate(type, location) {
+    if (location === undefined) {
+        if (type === undefined) {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+            const time = `${month}/${day}/${year}`;
+
+            return time;
+        } else if (type.toLowerCase() === 'mm/dd/yy') {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+            const time = `${month}/${day}/${year}`;
+
+            return time;
+        } else if (type.toLowerCase() === 'dd/mm/yy') {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+            const time = `${day}/${month}/${year}`;
+
+            return time;
+        } else if (type.toLowerCase() === 'yy/mm/dd') {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+            const time = `${year}/${month}/${day}`;
+
+            return time;
+        }
+    } else {
+        if (type === undefined) {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const time = d.substr(0, d.indexOf(','));
+
+            return time;
+        } else if (type.toLowerCase() === 'mm/dd/yy') {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const time = d.substr(0, d.indexOf(','));
+
+            return time;
+        } else if (type.toLowerCase() === 'dd/mm/yy') {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const month = d.substr(0, d.indexOf('/'));
+            const day = d.substr(
+                d.indexOf('/') + 1,
+                d.indexOf('/', d.indexOf('/') + 1) - 2,
+            );
+            const year = d.substr(
+                d.indexOf('/', d.indexOf('/') + 1) + 1,
+                d.indexOf(',') - 4,
+            );
+            const time = `${day}/${month}/${year}`;
+
+            return time;
+        } else if (type.toLowerCase() === 'yy/mm/dd') {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const month = d.substr(0, d.indexOf('/'));
+            const day = d.substr(
+                d.indexOf('/') + 1,
+                d.indexOf('/', d.indexOf('/') + 1) - 2,
+            );
+            const year = d.substr(
+                d.indexOf('/', d.indexOf('/') + 1) + 1,
+                d.indexOf(',') - 4,
+            );
+            const time = `${year}/${month}/${day}`;
+
+            return time;
+        }
+    }
+}
+
+export { Clock };

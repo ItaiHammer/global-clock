@@ -1,4 +1,4 @@
-# global-time
+# Global-Clock
 
 ### **What is this?**
 
@@ -13,26 +13,61 @@ Then...
 For commonjs:
 
 ```
-const { Time } = require('global-clock');
+const { Clock } = require('global-clock');
 
-Time.getTime(parameters)
+Clock.getTime(parameters)
 ```
 
 For module:
 
 ```
-import { Time } from 'global-clock';
+import { Clock } from 'global-clock';
 
-Time.getTime(parameters)
+Clock.getTime(parameters)
 ```
 
 ### **Options**
 
-Global Clock supports 2 options:
+Global Clock supports 3 options:
 
--   `Time.getTime(parameters)` - Returns time with AM/PM EX: _5:00:00 PM_
--   `Time.getFullTime(parameters)` - Returns full time EX: _17:00:00_
+-   `Clock.getTime(<parameters: location _not required_>)` - Returns time with AM/PM
+
+    EX:
+
+    ```
+    Clock.getTime() // '5:00:00 PM'
+    ```
+
+-   `Clock.getFullTime(<parameters: location _not required_>)` - Returns full time
+
+    EX:
+
+    ```
+    Clock.getFullTime() // '17:00:00'
+    ```
+
+-   `Clock.getDate(<parameters: type _not required_, location _not required_>)` - Returns full time
+
+    EX:
+
+    ```
+    Clock.getDate() // '1/8/2021'
+    ```
 
 ### **Parameters**
 
--   `location` _not required_ - Location is the location where you want the time from.
+-   `location` _not required_, _not case sensitive_ - Location is the location where you want the time from.
+
+    EX:
+
+```
+Clock.getTime('california') // 5:00:00 PM
+```
+
+-   `type` _not required_, _not case sensitive_ - Type is used for dates, this is responsible for the order that the date is in.
+
+    EX:
+
+```
+Clock.getDate('dd/mm/yy') // 8/1/2020
+```

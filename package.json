@@ -1,6 +1,6 @@
 {
     "name": "global-clock",
-    "version": "1.0.1",
+    "version": "1.0.4",
     "description": "Easily get time from anywhere!",
     "main": "index.js",
     "type": "module",
@@ -17,5 +17,6 @@
     "bugs": {
         "url": "https://github.com/ItaiHammer/global-time/issues"
     },
-    "homepage": "https://github.com/ItaiHammer/global-time#readme"
+    "homepage": "https://github.com/ItaiHammer/global-time#readme",
+    "devDependencies": {}
 }
