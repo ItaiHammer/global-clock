@@ -38,7 +38,7 @@ Global Clock supports 3 options:
     Clock.getTime() // '5:00:00 PM'
     ```
 
--   `Clock.getFullTime(<parameters: location>)` - Returns full time
+-   `Clock.getFullTime(<parameters: location>)` - Returns time in military time
 
     EX:
 
@@ -46,7 +46,7 @@ Global Clock supports 3 options:
     Clock.getFullTime() // '17:00:00'
     ```
 
--   `Clock.getDate(<parameters: type, location>)` - Returns time in military time
+-   `Clock.getDate(<parameters: type, location>)` - Returns date
 
     EX:
 
