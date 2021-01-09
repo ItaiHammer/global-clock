@@ -2,7 +2,7 @@
 
 ### **What is this?**
 
-Easily get time from anywhere!
+Easily get time and date for any location!
 
 ### **Installation**
 
@@ -46,7 +46,7 @@ Global Clock supports 3 options:
     Clock.getFullTime() // '17:00:00'
     ```
 
--   `Clock.getDate(<parameters: type, location>)` - Returns full time
+-   `Clock.getDate(<parameters: type, location>)` - Returns time in military time
 
     EX:
 
