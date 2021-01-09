@@ -82,7 +82,9 @@ EX:
 
 -   `location` _not required_, _not case sensitive_ - Location is the location where you want the time from.
 
-If the location is `undefined` the location would automaticly output to your location
+You **CANNOT** put a random location, this only works with `official timezones`, you can get more information about this at: https://www.iana.org/time-zones
+
+If the location is `undefined` the location would automaticly output to your current location
 
 EX:
 
