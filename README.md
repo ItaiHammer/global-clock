@@ -28,9 +28,9 @@ Clock.getTime(parameters)
 
 ### **Options**
 
-Global Clock supports 3 options:
+Global Clock supports 4 options:
 
--   `Clock.getTime(<parameters: location>)` - Returns time with AM/PM
+-   `Clock.getTime(<parameters: location>)` - Returns time in the AM/PM format
 
     EX:
 
@@ -46,7 +46,15 @@ Global Clock supports 3 options:
     Clock.getFullTime() // '17:00:00'
     ```
 
--   `Clock.getDate(<parameters: type, location>)` - Returns date
+-   `Clock.getDate(<parameters: type, location>)` - Returns the date
+
+    EX:
+
+    ```
+    Clock.getDate() // '1/8/2021'
+    ```
+
+-   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time
 
     EX:
 
@@ -68,10 +76,42 @@ Clock.getTime('california') // 5:00:00 PM
 
 -   `type` _not required_, _not case sensitive_ - Type is used for dates, this is responsible for the order that the date is in.
 
+    There are 3 different possible values for type:
+
+    -   `mm/dd/yy` or `mm/dd/yyyy`
+
+        Output:
+
+    ```
+    Clock.getDate('mm/dd/yy') // 1/8/2021
+    Clock.getDate('mm/dd/yyyy') // 1/8/2021
+    ```
+
+    -   `dd/mm/yy` or `dd/mm/yyyy`
+
+        Output:
+
+    ```
+    Clock.getDate('dd/mm/yy') // 8/1/2021
+    Clock.getDate('dd/mm/yyyy') // 8/1/2021
+    ```
+
+    -   `yy/mm/dd` or `yyyy/mm/dd`
+
+        Output:
+
+    ```
+    Clock.getDate('yy/mm/dd') // 2021/1/8
+    Clock.getDate('yyyy/mm/dd') // 2021/1/8
+    ```
+
+    If the type is `undefined` the date would automaticly output in this format `mm/dd/yyyy`
+
     EX:
 
 ```
 Clock.getDate(type)
 
-Clock.getDate('dd/mm/yy') // 8/1/2020
+Clock.getDate('dd/mm/yy') // 8/1/2021
+Clock.getDate ('dd/mm/yyyy') // 8/1/2021
 ```
