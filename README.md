@@ -54,12 +54,20 @@ Global Clock supports 4 options:
     Clock.getDate() // '1/8/2021'
     ```
 
--   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time
+-   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time in the AM/PM format
 
     EX:
 
     ```
     Clock.getDateTime() // '1/8/2021 5:00:00 PM'
+    ```
+
+-   `Clock.getDateFullTime(<parameters: type, location>)` - Returns the date and the time in military time
+
+    EX:
+
+    ```
+    Clock.getDateTime() // '1/8/2021 17:00:00'
     ```
 
 ### **Parameters**

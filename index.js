@@ -3,6 +3,7 @@ let Clock = {
     getTime,
     getDate,
     getDateTime,
+    getDateFullTime,
 };
 
 function getFullTime(location) {
@@ -12,7 +13,7 @@ function getFullTime(location) {
         const minutes = d.getMinutes();
         const seconds = d.getSeconds();
 
-        const time = `${hour}:${minutes}:${seconds} ${sufix}`;
+        const time = `${hour}:${minutes}:${seconds}`;
 
         return time;
     } else {
@@ -366,6 +367,154 @@ function getDateTime(type, location) {
     }
 }
 
-console.log(getDateTime('dd/mm/yy', 'israel'));
+function getDateFullTime(type, location) {
+    if (location === undefined) {
+        if (type === undefined) {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+
+            let hour = d.getHours();
+            const minutes = d.getMinutes();
+            const seconds = d.getSeconds();
+
+            const time = `${hour}:${minutes}:${seconds}`;
+            const date = `${month}/${day}/${year}`;
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        } else if (
+            type.toLowerCase() === 'mm/dd/yy' ||
+            type.toLowerCase() === 'mm/dd/yyyy'
+        ) {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+
+            let hour = d.getHours();
+            const minutes = d.getMinutes();
+            const seconds = d.getSeconds();
+
+            const time = `${hour}:${minutes}:${seconds}`;
+            const date = `${month}/${day}/${year}`;
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        } else if (
+            type.toLowerCase() === 'dd/mm/yy' ||
+            type.toLowerCase() === 'dd/mm/yyyy'
+        ) {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+
+            let hour = d.getHours();
+            const minutes = d.getMinutes();
+            const seconds = d.getSeconds();
+
+            const time = `${hour}:${minutes}:${seconds}`;
+            const date = `${day}/${month}/${year}`;
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        } else if (
+            type.toLowerCase() === 'yy/mm/dd' ||
+            type.toLowerCase() === 'yyyy/mm/dd'
+        ) {
+            let d = new Date();
+            const day = d.getDate();
+            const month = d.getMonth() === 0 ? 1 : d.getMonth();
+            const year = d.getFullYear();
+
+            let hour = d.getHours();
+            const minutes = d.getMinutes();
+            const seconds = d.getSeconds();
+
+            const time = `${hour}:${minutes}:${seconds}`;
+            const date = `${year}/${month}/${day}`;
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        }
+    } else {
+        if (type === undefined) {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const time = d.substr(d.indexOf(' ') + 1, d.length);
+            const date = d.substr(0, d.indexOf(','));
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        } else if (
+            type.toLowerCase() === 'mm/dd/yy' ||
+            type.toLowerCase() === 'mm/dd/yyyy'
+        ) {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const time = d.substr(d.indexOf(' ') + 1, d.length);
+            const date = d.substr(0, d.indexOf(','));
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        } else if (
+            type.toLowerCase() === 'dd/mm/yy' ||
+            type.toLowerCase() === 'dd/mm/yyyy'
+        ) {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const month = d.substr(0, d.indexOf('/'));
+            const day = d.substr(
+                d.indexOf('/') + 1,
+                d.indexOf('/', d.indexOf('/') + 1) - 2,
+            );
+            const year = d.substr(
+                d.indexOf('/', d.indexOf('/') + 1) + 1,
+                d.indexOf(',') - 4,
+            );
+            const time = d.substr(d.indexOf(' ') + 1, d.length);
+            const date = `${day}/${month}/${year}`;
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        } else if (
+            type.toLowerCase() === 'yy/mm/dd' ||
+            type.toLowerCase() === 'yyyy/mm/dd'
+        ) {
+            const d = new Date().toLocaleString('en-US', {
+                timeZone: location,
+            });
+            const month = d.substr(0, d.indexOf('/'));
+            const day = d.substr(
+                d.indexOf('/') + 1,
+                d.indexOf('/', d.indexOf('/') + 1) - 2,
+            );
+            const year = d.substr(
+                d.indexOf('/', d.indexOf('/') + 1) + 1,
+                d.indexOf(',') - 4,
+            );
+            const time = d.substr(d.indexOf(' ') + 1, d.length);
+            const date = `${year}/${month}/${day}`;
+
+            const timeDate = `${date} ${time}`;
+
+            return timeDate;
+        }
+    }
+}
+
+console.log(getDateFullTime('dd/mm/yy', 'israel'));
 
 export { Clock };
