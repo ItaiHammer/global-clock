@@ -30,7 +30,7 @@ Clock.getTime(parameters)
 
 Global Clock supports 3 options:
 
--   `Clock.getTime(<parameters: location _not required_>)` - Returns time with AM/PM
+-   `Clock.getTime(<parameters: location>)` - Returns time with AM/PM
 
     EX:
 
@@ -38,7 +38,7 @@ Global Clock supports 3 options:
     Clock.getTime() // '5:00:00 PM'
     ```
 
--   `Clock.getFullTime(<parameters: location _not required_>)` - Returns full time
+-   `Clock.getFullTime(<parameters: location>)` - Returns full time
 
     EX:
 
@@ -46,7 +46,7 @@ Global Clock supports 3 options:
     Clock.getFullTime() // '17:00:00'
     ```
 
--   `Clock.getDate(<parameters: type _not required_, location _not required_>)` - Returns full time
+-   `Clock.getDate(<parameters: type, location>)` - Returns full time
 
     EX:
 
