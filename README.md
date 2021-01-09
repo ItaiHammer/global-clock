@@ -61,6 +61,8 @@ Global Clock supports 3 options:
     EX:
 
 ```
+Clock.getTime(location)
+
 Clock.getTime('california') // 5:00:00 PM
 ```
 
@@ -69,5 +71,7 @@ Clock.getTime('california') // 5:00:00 PM
     EX:
 
 ```
+Clock.getDate(type)
+
 Clock.getDate('dd/mm/yy') // 8/1/2020
 ```
