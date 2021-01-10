@@ -40,41 +40,41 @@ Clock supports 5 options:
 
 EX:
 
-    ```js
-    Clock.getTime() // '5:00:00 PM'
-    ```
+```js
+Clock.getTime(); // '5:00:00 PM'
+```
 
 -   `Clock.getFullTime(<parameters: location>)` - Returns time in military time
 
 EX:
 
-    ```js
-    Clock.getFullTime() // '17:00:00'
-    ```
+```js
+Clock.getFullTime(); // '17:00:00'
+```
 
 -   `Clock.getDate(<parameters: type, location>)` - Returns the date
 
 EX:
 
-    ```js
-    Clock.getDate() // '1/8/2021'
-    ```
+```js
+Clock.getDate(); // '1/8/2021'
+```
 
 -   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time in the AM/PM format
 
 EX:
 
-    ```js
-    Clock.getDateTime() // '1/8/2021 5:00:00 PM'
-    ```
+```js
+Clock.getDateTime(); // '1/8/2021 5:00:00 PM'
+```
 
 -   `Clock.getDateFullTime(<parameters: type, location>)` - Returns the date and the time in military time
 
 EX:
 
-    ```js
-    Clock.getDateTime() // '1/8/2021 17:00:00'
-    ```
+```js
+Clock.getDateTime(); // '1/8/2021 17:00:00'
+```
 
 ### **Clock Parameters**
 
@@ -96,51 +96,57 @@ Clock.getTime('california'); // 5:00:00 PM
 
     There are 3 different possible values for type:
 
-    -   `mm/dd/yy` or `mm/dd/yyyy`
+-   `mm/dd/yy` or `mm/dd/yyyy`
 
-        Output:
+    Output:
 
-    ```js
-    Clock.getDate('mm/dd/yy'); // 1/8/2021
-    Clock.getDate('mm/dd/yyyy'); // 1/8/2021
-    ```
+```js
+Clock.getDate('mm/dd/yy'); // 1/8/2021
+Clock.getDate('mm/dd/yyyy'); // 1/8/2021
+```
 
-    -   `dd/mm/yy` or `dd/mm/yyyy`
+-   `dd/mm/yy` or `dd/mm/yyyy`
 
-        Output:
+    Output:
 
-    ```js
-    Clock.getDate('dd/mm/yy'); // 8/1/2021
-    Clock.getDate('dd/mm/yyyy'); // 8/1/2021
-    ```
+```js
+Clock.getDate('dd/mm/yy'); // 8/1/2021
+Clock.getDate('dd/mm/yyyy'); // 8/1/2021
+```
 
-    -   `yy/mm/dd` or `yyyy/mm/dd`
+-   `yy/mm/dd` or `yyyy/mm/dd`
 
-        Output:
+    Output:
 
-    ```js
-    Clock.getDate('yy/mm/dd'); // 2021/1/8
-    Clock.getDate('yyyy/mm/dd'); // 2021/1/8
-    ```
+```js
+Clock.getDate('yy/mm/dd'); // 2021/1/8
+Clock.getDate('yyyy/mm/dd'); // 2021/1/8
+```
 
-    If the type is `undefined` the date would automaticly output in this format `mm/dd/yyyy`
+You can use both `dd/mm/yy` or `dd/mm/yyyy`
 
 EX:
 
-```
-Clock.getDate(type)
+```js
+Clock.getDate(type);
 
-Clock.getDate('dd/mm/yy') // 8/1/2021
-Clock.getDate ('dd/mm/yyyy') // 8/1/2021
+Clock.getDate('dd/mm/yy'); // 8/1/2021
+Clock.getDate('dd/mm/yyyy'); // 8/1/2021
 ```
+
+If the type is `undefined` the date would automaticly output in this format `mm/dd/yyyy`
 
 ### **HTMLClock**
 
 **!** _This does not work with pure HTML and JS_
 
 _You would need to use something like Parcel or Webpack_
+<br/>
+Parcel: https://parceljs.org/
 
-HTMLClock supports 1 options:
+Webpack: https://webpack.js.org/
+<br/><br/>
+HTMLClock supports 1 option:
 
 -   `HTMLClock.createClock(<object>)` - This creates a clock element
 
