@@ -141,7 +141,7 @@ If the type is `undefined` the date would automaticly output in this format `mm/
 **!** _This does not work with pure HTML and JS_
 
 _You would need to use something like Parcel or Webpack_
-<br/>
+<br/><br/>
 Parcel: https://parceljs.org/
 
 Webpack: https://webpack.js.org/
