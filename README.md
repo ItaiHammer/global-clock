@@ -6,7 +6,13 @@ An Easy and lightweight package for getting time and date for any location!
 
 ### **Installation**
 
+For npm:
+
 `npm install global-clock --save`
+
+For yarn:
+
+`yarn add global-clock`
 
 Then...
 
@@ -130,7 +136,7 @@ Clock.getDate ('dd/mm/yyyy') // 8/1/2021
 
 ### **HTMLClock**
 
-**This does not work with pure HTML**
+**This does not work with pure HTML and JS**
 
 **You would need to use something like Parcel or Webpack**
 
@@ -158,6 +164,31 @@ HTMLClock.createClock(options);
 <div class="clock" ></div> <!-- the object that turns into the clock -->
 
 <div class="not-clock" ></div> <!-- NOT the object that turns into the clock -->
+
+- RESULT
+
+<div class="clock" style="display:flex;alignItems:center;justifyContent:center;" >
+    <p class="clock-time" style="color:#fff;font-family:arial;font-size:1.5em;font-weight:200;" ><The Time><p>
+</div>
+
+<div class="not-clock" ></div>
+```
+
+The `<p></p>` tag's class would always be the main class name and-time(in this case `clock-time`)
+
+To overwrite the inline CSS you can use !important
+
+EX:
+
+```
+.clock {
+    background: #EEFFFF !important;
+}
+
+.clock-time {
+    color: #000 !important;
+    font-size: 20px !important;
+}
 ```
 
 ### **HTMLClock Object**

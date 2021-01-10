@@ -1,6 +1,6 @@
 {
     "name": "global-clock",
-    "version": "2.0.8",
+    "version": "2.0.9",
     "description": "An Easy and lightweight package for getting time and date for any location!",
     "main": "",
     "type": "module",
