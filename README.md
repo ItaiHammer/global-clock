@@ -36,7 +36,7 @@ Clock.getTime();
 
 Clock supports 5 options:
 
--   `Clock.getTime(<parameters: location>)` - Returns time in the AM/PM format
+-   `Clock.getTime(<parameters: length, location>)` - Returns time in the AM/PM format
 
 EX:
 
@@ -44,7 +44,7 @@ EX:
 Clock.getTime(); // '5:00:00 PM'
 ```
 
--   `Clock.getFullTime(<parameters: location>)` - Returns time in military time
+-   `Clock.getFullTime(<parameters: length, location>)` - Returns time in military time
 
 EX:
 
@@ -60,7 +60,7 @@ EX:
 Clock.getDate(); // '1/8/2021'
 ```
 
--   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time in the AM/PM format
+-   `Clock.getDateTime(<parameters: type, length, location>)` - Returns the date and the time in the AM/PM format
 
 EX:
 
@@ -68,12 +68,12 @@ EX:
 Clock.getDateTime(); // '1/8/2021 5:00:00 PM'
 ```
 
--   `Clock.getDateFullTime(<parameters: type, location>)` - Returns the date and the time in military time
+-   `Clock.getDateFullTime(<parameters: type, length, location>)` - Returns the date and the time in military time
 
 EX:
 
 ```js
-Clock.getDateTime(); // '1/8/2021 17:00:00'
+Clock.getDateFullTime(); // '1/8/2021 17:00:00'
 ```
 
 ### **Clock Parameters**
@@ -91,6 +91,28 @@ Clock.getTime(location);
 
 Clock.getTime('california'); // 5:00:00 PM
 ```
+
+-   `length` _not required_, _not case sensitive_ - How long the time is
+
+    There are 2 different possible values for length:
+
+-   `3` - It would return the time in this format: `5:00:00 PM`
+
+EX:
+
+```js
+Clock.getDate(3, location); // 5:00:00 PM
+```
+
+-   `2` - It would return the time in this format: `5:00 PM`
+
+EX:
+
+```js
+Clock.getDate(2, location); // 5:00 PM
+```
+
+If the length is `undefined` the length would automaticly output in this format `5:00:00 PM`
 
 -   `type` _not required_, _not case sensitive_ - Type is used for dates, this is responsible for the order that the date is in.
 
@@ -213,9 +235,9 @@ EX:
 
 ### **HTMLClock Object**
 
--   `class` - This would be the class that would become the clock element
+-   `class` _required_, _case sensitive_ - This would be the class that would become the clock element
 
--   `type` - This is the type of clock element you want
+-   `type` _not required_, _case sensitive_ - This is the type of clock element you want
 
     -   `text` - An invisible `<div></div>` element with a `<p></p>` element that says the time inside of it
 
@@ -223,11 +245,13 @@ EX:
 
     If you leave blank or `undefined` it will default to `text`
 
--   `location` - The location that you want the time from
+-   `length` _not required_, _not case sensitive_ - How long you want the time to be
+
+-   `location` _not required_, _not case sensitive_ - The location that you want the time from
 
     If you leave blank or `undefined` it will default to your current location
 
--   `time` - Which type of time do you want
+-   `time` _not required_, _case sensitive_ - Which type of time do you want
 
     -   `normal` - Returns time in the AM/PM format
 

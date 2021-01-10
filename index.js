@@ -8,64 +8,183 @@ const Clock = {
     getDateFullTime,
 };
 
-function getFullTime(location) {
-    if (location === undefined) {
-        let d = new Date();
-        let hour =
-            String(d.getHours()).length === 1
-                ? `0${d.getHours()}`
-                : d.getHours();
-        const minutes =
-            String(d.getMinutes()).length === 1
-                ? `0${d.getMinutes()}`
-                : d.getMinutes();
-        const seconds =
-            String(d.getSeconds()).length === 1
-                ? `0${d.getSeconds()}`
-                : d.getSeconds();
+function getFullTime(length, location) {
+    console.log(length);
+    console.log(location);
+    console.log(length === 2);
+    console.log(length === 3);
 
-        const time = `${hour}:${minutes}:${seconds}`;
+    if (location === undefined || location === 'default') {
+        if (length == null || length === 'default') {
+            let d = new Date();
+            let hour =
+                String(d.getHours()).length === 1
+                    ? `0${d.getHours()}`
+                    : d.getHours();
+            const minutes =
+                String(d.getMinutes()).length === 1
+                    ? `0${d.getMinutes()}`
+                    : d.getMinutes();
+            const seconds =
+                String(d.getSeconds()).length === 1
+                    ? `0${d.getSeconds()}`
+                    : d.getSeconds();
 
-        return time;
+            const time = `${hour}:${minutes}:${seconds}`;
+
+            return time;
+        } else if (length === 3) {
+            let d = new Date();
+            let hour =
+                String(d.getHours()).length === 1
+                    ? `0${d.getHours()}`
+                    : d.getHours();
+            const minutes =
+                String(d.getMinutes()).length === 1
+                    ? `0${d.getMinutes()}`
+                    : d.getMinutes();
+            const seconds =
+                String(d.getSeconds()).length === 1
+                    ? `0${d.getSeconds()}`
+                    : d.getSeconds();
+
+            const time = `${hour}:${minutes}:${seconds}`;
+
+            return time;
+        } else if (length === 2) {
+            let d = new Date();
+            let hour =
+                String(d.getHours()).length === 1
+                    ? `0${d.getHours()}`
+                    : d.getHours();
+            const minutes =
+                String(d.getMinutes()).length === 1
+                    ? `0${d.getMinutes()}`
+                    : d.getMinutes();
+
+            const time = `${hour}:${minutes}`;
+
+            return time;
+        }
     } else {
-        let d = new Date().toLocaleString('en-US', { timeZone: location });
-        let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
-        time = time.substr(0, time.length - 3);
+        if (length == null || length === 'default') {
+            let d = new Date().toLocaleString('en-US', { timeZone: location });
+            let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
+            time = time.substr(0, time.length - 3);
 
-        return time;
+            return time;
+        } else if (length === 3) {
+            let d = new Date().toLocaleString('en-US', { timeZone: location });
+            let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
+            time = time.substr(0, time.length - 3);
+
+            return time;
+        } else if (length === 2) {
+            let d = new Date().toLocaleString('en-US', { timeZone: location });
+            let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
+            time = time.substr(0, time.length - 6);
+
+            return time;
+        }
     }
 }
 
-function getTime(location) {
-    if (location === undefined) {
-        let d = new Date();
-        let hour =
-            String(d.getHours()).length === 1
-                ? `0${d.getHours()}`
-                : d.getHours();
-        const minutes =
-            String(d.getMinutes()).length === 1
-                ? `0${d.getMinutes()}`
-                : d.getMinutes();
-        const seconds =
-            String(d.getSeconds()).length === 1
-                ? `0${d.getSeconds()}`
-                : d.getSeconds();
+function getTime(length, location) {
+    if (location === undefined || location === 'default') {
+        if (length == null || length === 'default') {
+            let d = new Date();
+            let hour =
+                String(d.getHours()).length === 1
+                    ? `0${d.getHours()}`
+                    : d.getHours();
+            const minutes =
+                String(d.getMinutes()).length === 1
+                    ? `0${d.getMinutes()}`
+                    : d.getMinutes();
+            const seconds =
+                String(d.getSeconds()).length === 1
+                    ? `0${d.getSeconds()}`
+                    : d.getSeconds();
 
-        let sufix = 'AM';
-        if (hour > 12) {
-            hour = hour - 12;
-            sufix = 'PM';
+            let sufix = 'AM';
+            if (hour > 12) {
+                hour = hour - 12;
+                sufix = 'PM';
+            }
+
+            const time = `${hour}:${minutes}:${seconds} ${sufix}`;
+
+            return time;
+        } else if (length === 3) {
+            let d = new Date();
+            let hour =
+                String(d.getHours()).length === 1
+                    ? `0${d.getHours()}`
+                    : d.getHours();
+            const minutes =
+                String(d.getMinutes()).length === 1
+                    ? `0${d.getMinutes()}`
+                    : d.getMinutes();
+            const seconds =
+                String(d.getSeconds()).length === 1
+                    ? `0${d.getSeconds()}`
+                    : d.getSeconds();
+
+            let sufix = 'AM';
+            if (hour > 12) {
+                hour = hour - 12;
+                sufix = 'PM';
+            }
+
+            const time = `${hour}:${minutes}:${seconds} ${sufix}`;
+
+            return time;
+        } else if (length === 2) {
+            let d = new Date();
+            let hour =
+                String(d.getHours()).length === 1
+                    ? `0${d.getHours()}`
+                    : d.getHours();
+            const minutes =
+                String(d.getMinutes()).length === 1
+                    ? `0${d.getMinutes()}`
+                    : d.getMinutes();
+            const seconds =
+                String(d.getSeconds()).length === 1
+                    ? `0${d.getSeconds()}`
+                    : d.getSeconds();
+
+            let sufix = 'AM';
+            if (hour > 12) {
+                hour = hour - 12;
+                sufix = 'PM';
+            }
+
+            const time = `${hour}:${minutes} ${sufix}`;
+
+            return time;
         }
-
-        const time = `${hour}:${minutes}:${seconds} ${sufix}`;
-
-        return time;
     } else {
-        let d = new Date().toLocaleString('en-US', { timeZone: location });
-        const time = d.substr(d.indexOf(' ') + 1, d.length);
+        if (length == null || length === 'default') {
+            let d = new Date().toLocaleString('en-US', { timeZone: location });
+            const time = d.substr(d.indexOf(' ') + 1, d.length);
 
-        return time;
+            return time;
+        } else if (length === 3) {
+            let d = new Date().toLocaleString('en-US', { timeZone: location });
+            const time = d.substr(d.indexOf(' ') + 1, d.length);
+
+            return time;
+        } else if (length === 2) {
+            let d = new Date().toLocaleString('en-US', { timeZone: location });
+            const pre = d.substr(d.indexOf(' ') + 1, d.length);
+            const time = `${pre.substr(0, pre.length - 6)} ${pre.substr(
+                pre.length - 2,
+                pre.length,
+            )}`;
+
+            return time;
+        }
     }
 }
 
@@ -173,99 +292,54 @@ function getDate(type, location) {
     }
 }
 
-function getDateTime(type, location) {
-    if (location === undefined) {
-        if (type === undefined) {
-            return `${getDate()} ${getTime()}`;
-        } else if (
-            type.toLowerCase() === 'mm/dd/yy' ||
-            type.toLowerCase() === 'mm/dd/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase())} ${getTime()}`;
-        } else if (
-            type.toLowerCase() === 'dd/mm/yy' ||
-            type.toLowerCase() === 'dd/mm/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase())} ${getTime()}`;
-        } else if (
-            type.toLowerCase() === 'yy/mm/dd' ||
-            type.toLowerCase() === 'yyyy/mm/dd'
-        ) {
-            return `${getDate(type.toLowerCase())} ${getTime()}`;
-        }
-    } else {
-        if (type === undefined) {
-            return `${getDate('mm/dd/yy', location)} ${getTime(location)}`;
-        } else if (
-            type.toLowerCase() === 'mm/dd/yy' ||
-            type.toLowerCase() === 'mm/dd/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase(), location)} ${getTime(
-                location,
-            )}`;
-        } else if (
-            type.toLowerCase() === 'dd/mm/yy' ||
-            type.toLowerCase() === 'dd/mm/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase(), location)} ${getTime(
-                location,
-            )}`;
-        } else if (
-            type.toLowerCase() === 'yy/mm/dd' ||
-            type.toLowerCase() === 'yyyy/mm/dd'
-        ) {
-            return `${getDate(type.toLowerCase(), location)} ${getTime(
-                location,
-            )}`;
-        }
+function getDateTime(type, length, location) {
+    if (type === undefined) {
+        return `${getDate()} ${getTime(length, location)}`;
+    } else if (
+        type.toLowerCase() === 'mm/dd/yy' ||
+        type.toLowerCase() === 'mm/dd/yyyy'
+    ) {
+        return `${getDate(type.toLowerCase())} ${getTime(length, location)}`;
+    } else if (
+        type.toLowerCase() === 'dd/mm/yy' ||
+        type.toLowerCase() === 'dd/mm/yyyy'
+    ) {
+        return `${getDate(type.toLowerCase())} ${getTime(length, location)}`;
+    } else if (
+        type.toLowerCase() === 'yy/mm/dd' ||
+        type.toLowerCase() === 'yyyy/mm/dd'
+    ) {
+        return `${getDate(type.toLowerCase())} ${getTime(length, location)}`;
     }
 }
 
-function getDateFullTime(type, location) {
-    if (location === undefined) {
-        if (type === undefined) {
-            return `${getDate()} ${getFullTime()}`;
-        } else if (
-            type.toLowerCase() === 'mm/dd/yy' ||
-            type.toLowerCase() === 'mm/dd/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase())} ${getFullTime()}`;
-        } else if (
-            type.toLowerCase() === 'dd/mm/yy' ||
-            type.toLowerCase() === 'dd/mm/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase())} ${getFullTime()}`;
-        } else if (
-            type.toLowerCase() === 'yy/mm/dd' ||
-            type.toLowerCase() === 'yyyy/mm/dd'
-        ) {
-            return `${getDate(type.toLowerCase())} ${getFullTime()}`;
-        }
-    } else {
-        if (type === undefined) {
-            return `${getDate('mm/dd/yy', location)} ${getFullTime(location)}`;
-        } else if (
-            type.toLowerCase() === 'mm/dd/yy' ||
-            type.toLowerCase() === 'mm/dd/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase(), location)} ${getFullTime(
-                location,
-            )}`;
-        } else if (
-            type.toLowerCase() === 'dd/mm/yy' ||
-            type.toLowerCase() === 'dd/mm/yyyy'
-        ) {
-            return `${getDate(type.toLowerCase(), location)} ${getFullTime(
-                location,
-            )}`;
-        } else if (
-            type.toLowerCase() === 'yy/mm/dd' ||
-            type.toLowerCase() === 'yyyy/mm/dd'
-        ) {
-            return `${getDate(type.toLowerCase(), location)} ${getFullTime(
-                location,
-            )}`;
-        }
+function getDateFullTime(type, length, location) {
+    if (type === undefined) {
+        return `${getDate()} ${getFullTime(length, location)}`;
+    } else if (
+        type.toLowerCase() === 'mm/dd/yy' ||
+        type.toLowerCase() === 'mm/dd/yyyy'
+    ) {
+        return `${getDate(type.toLowerCase())} ${getFullTime(
+            length,
+            location,
+        )}`;
+    } else if (
+        type.toLowerCase() === 'dd/mm/yy' ||
+        type.toLowerCase() === 'dd/mm/yyyy'
+    ) {
+        return `${getDate(type.toLowerCase())} ${getFullTime(
+            length,
+            location,
+        )}`;
+    } else if (
+        type.toLowerCase() === 'yy/mm/dd' ||
+        type.toLowerCase() === 'yyyy/mm/dd'
+    ) {
+        return `${getDate(type.toLowerCase())} ${getFullTime(
+            length,
+            location,
+        )}`;
     }
 }
 
@@ -289,6 +363,7 @@ function setClock() {
 
             const className = options.class;
             const type = options.type;
+            const length = options.length;
             const location = options.location;
             const time = options.time;
 
@@ -320,9 +395,12 @@ function setClock() {
 
                     setInterval(() => {
                         if (time === 'full') {
-                            timeElement.innerHTML = getFullTime(location);
+                            timeElement.innerHTML = getFullTime(
+                                length,
+                                location,
+                            );
                         } else {
-                            timeElement.innerHTML = getTime(location);
+                            timeElement.innerHTML = getTime(length, location);
                         }
                     }, 1000);
                 });
@@ -350,9 +428,12 @@ function setClock() {
 
                     setInterval(() => {
                         if (time === 'full') {
-                            timeElement.innerHTML = getFullTime(location);
+                            timeElement.innerHTML = getFullTime(
+                                length,
+                                location,
+                            );
                         } else {
-                            timeElement.innerHTML = getTime(location);
+                            timeElement.innerHTML = getTime(length, location);
                         }
                     }, 1000);
                 });
@@ -372,9 +453,9 @@ function setClock() {
                     timeElement.classList.add(`${className}-time`);
 
                     if (time === 'full') {
-                        timeElement.innerHTML = getFullTime(location);
+                        timeElement.innerHTML = getFullTime(length, location);
                     } else {
-                        timeElement.innerHTML = getTime(location);
+                        timeElement.innerHTML = getTime(length, location);
                     }
 
                     timeElement.style.color = '#fff';
@@ -386,9 +467,12 @@ function setClock() {
 
                     setInterval(() => {
                         if (time === 'full') {
-                            timeElement.innerHTML = getFullTime(location);
+                            timeElement.innerHTML = getFullTime(
+                                length,
+                                location,
+                            );
                         } else {
-                            timeElement.innerHTML = getTime(location);
+                            timeElement.innerHTML = getTime(length, location);
                         }
                     }, 1000);
                 });

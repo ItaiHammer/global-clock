@@ -1,6 +1,6 @@
 {
     "name": "global-clock",
-    "version": "2.1.3",
+    "version": "2.2.0",
     "description": "An Easy and lightweight package for getting time and date for any location!",
     "main": "",
     "type": "module",
@@ -20,7 +20,17 @@
         "global clock",
         "location time",
         "time location",
-        "global time location"
+        "global time location",
+        "time js",
+        "time html",
+        "js time",
+        "html time",
+        "javascript time",
+        "time javascript",
+        "global time js",
+        "global time html",
+        "js global time",
+        "html global time"
     ],
     "author": "Itai Hammer",
     "license": "ISC",
