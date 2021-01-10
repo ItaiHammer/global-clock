@@ -36,7 +36,7 @@ Clock.getTime();
 
 Clock supports 5 options:
 
--   `Clock.getTime(<parameters: length, location>)` - Returns time in the AM/PM format
+-   `Clock.getTime(<parameters: withSeconds, location>)` - Returns time in the AM/PM format
 
 EX:
 
@@ -44,7 +44,7 @@ EX:
 Clock.getTime(); // '5:00:00 PM'
 ```
 
--   `Clock.getFullTime(<parameters: length, location>)` - Returns time in military time
+-   `Clock.getFullTime(<parameters: withSeconds, location>)` - Returns time in military time
 
 EX:
 
@@ -60,7 +60,7 @@ EX:
 Clock.getDate(); // '1/8/2021'
 ```
 
--   `Clock.getDateTime(<parameters: type, length, location>)` - Returns the date and the time in the AM/PM format
+-   `Clock.getDateTime(<parameters: type, withSeconds, location>)` - Returns the date and the time in the AM/PM format
 
 EX:
 
@@ -68,7 +68,7 @@ EX:
 Clock.getDateTime(); // '1/8/2021 5:00:00 PM'
 ```
 
--   `Clock.getDateFullTime(<parameters: type, length, location>)` - Returns the date and the time in military time
+-   `Clock.getDateFullTime(<parameters: type, withSeconds, location>)` - Returns the date and the time in military time
 
 EX:
 
@@ -77,6 +77,28 @@ Clock.getDateFullTime(); // '1/8/2021 17:00:00'
 ```
 
 ### **Clock Parameters**
+
+-   `withSeconds` _not required_, _not case sensitive_ - How long the time is
+
+    There are 2 different possible values for length:
+
+-   `true` - It would return the time in this format: `5:00:00 PM`
+
+EX:
+
+```js
+Clock.getDate(true); // 5:00:00 PM
+```
+
+-   `false` - It would return the time in this format: `5:00 PM`
+
+EX:
+
+```js
+Clock.getDate(false); // 5:00 PM
+```
+
+If the length is `undefined` the length would automaticly output in this format `5:00:00 PM`
 
 -   `location` _not required_, _not case sensitive_ - Location is the location where you want the time from.
 
@@ -91,28 +113,6 @@ Clock.getTime(location);
 
 Clock.getTime('california'); // 5:00:00 PM
 ```
-
--   `length` _not required_, _not case sensitive_ - How long the time is
-
-    There are 2 different possible values for length:
-
--   `3` - It would return the time in this format: `5:00:00 PM`
-
-EX:
-
-```js
-Clock.getDate(3, location); // 5:00:00 PM
-```
-
--   `2` - It would return the time in this format: `5:00 PM`
-
-EX:
-
-```js
-Clock.getDate(2, location); // 5:00 PM
-```
-
-If the length is `undefined` the length would automaticly output in this format `5:00:00 PM`
 
 -   `type` _not required_, _not case sensitive_ - Type is used for dates, this is responsible for the order that the date is in.
 

@@ -8,9 +8,9 @@ const Clock = {
     getDateFullTime,
 };
 
-function getFullTime(length, location) {
+function getFullTime(withSeconds, location) {
     if (location === undefined || location === 'default') {
-        if (length == null || length === 'default') {
+        if (withSeconds == null || withSeconds === 'default') {
             let d = new Date();
             let hour =
                 String(d.getHours()).length === 1
@@ -28,7 +28,7 @@ function getFullTime(length, location) {
             const time = `${hour}:${minutes}:${seconds}`;
 
             return time;
-        } else if (length === 3) {
+        } else if (withSeconds === true) {
             let d = new Date();
             let hour =
                 String(d.getHours()).length === 1
@@ -46,7 +46,7 @@ function getFullTime(length, location) {
             const time = `${hour}:${minutes}:${seconds}`;
 
             return time;
-        } else if (length === 2) {
+        } else if (seconds === false) {
             let d = new Date();
             let hour =
                 String(d.getHours()).length === 1
@@ -62,19 +62,19 @@ function getFullTime(length, location) {
             return time;
         }
     } else {
-        if (length == null || length === 'default') {
+        if (withSeconds == null || withSeconds === 'default') {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
             time = time.substr(0, time.length - 3);
 
             return time;
-        } else if (length === 3) {
+        } else if (withSeconds === true) {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
             time = time.substr(0, time.length - 3);
 
             return time;
-        } else if (length === 2) {
+        } else if (seconds === false) {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
             time = time.substr(0, time.length - 6);
@@ -84,9 +84,9 @@ function getFullTime(length, location) {
     }
 }
 
-function getTime(length, location) {
+function getTime(withSeconds, location) {
     if (location === undefined || location === 'default') {
-        if (length == null || length === 'default') {
+        if (withSeconds == null || withSeconds === 'default') {
             let d = new Date();
             let hour =
                 String(d.getHours()).length === 1
@@ -111,7 +111,7 @@ function getTime(length, location) {
             const time = `${hour}:${minutes}:${seconds} ${sufix}`;
 
             return time;
-        } else if (length === 3) {
+        } else if (withSeconds === true) {
             let d = new Date();
             let hour =
                 String(d.getHours()).length === 1
@@ -136,7 +136,7 @@ function getTime(length, location) {
             const time = `${hour}:${minutes}:${seconds} ${sufix}`;
 
             return time;
-        } else if (length === 2) {
+        } else if (withSeconds === false) {
             let d = new Date();
             let hour =
                 String(d.getHours()).length === 1
@@ -163,17 +163,17 @@ function getTime(length, location) {
             return time;
         }
     } else {
-        if (length == null || length === 'default') {
+        if (withSeconds == null || withSeconds === 'default') {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             const time = d.substr(d.indexOf(' ') + 1, d.length);
 
             return time;
-        } else if (length === 3) {
+        } else if (withSeconds === true) {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             const time = d.substr(d.indexOf(' ') + 1, d.length);
 
             return time;
-        } else if (length === 2) {
+        } else if (seconds === true) {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             const pre = d.substr(d.indexOf(' ') + 1, d.length);
             const time = `${pre.substr(0, pre.length - 6)} ${pre.substr(
@@ -290,36 +290,45 @@ function getDate(type, location) {
     }
 }
 
-function getDateTime(type, length, location) {
+function getDateTime(type, withSeconds, location) {
     if (type === undefined) {
-        return `${getDate()} ${getTime(length, location)}`;
+        return `${getDate()} ${getTime(withSeconds, location)}`;
     } else if (
         type.toLowerCase() === 'mm/dd/yy' ||
         type.toLowerCase() === 'mm/dd/yyyy'
     ) {
-        return `${getDate(type.toLowerCase())} ${getTime(length, location)}`;
+        return `${getDate(type.toLowerCase())} ${getTime(
+            withSeconds,
+            location,
+        )}`;
     } else if (
         type.toLowerCase() === 'dd/mm/yy' ||
         type.toLowerCase() === 'dd/mm/yyyy'
     ) {
-        return `${getDate(type.toLowerCase())} ${getTime(length, location)}`;
+        return `${getDate(type.toLowerCase())} ${getTime(
+            withSeconds,
+            location,
+        )}`;
     } else if (
         type.toLowerCase() === 'yy/mm/dd' ||
         type.toLowerCase() === 'yyyy/mm/dd'
     ) {
-        return `${getDate(type.toLowerCase())} ${getTime(length, location)}`;
+        return `${getDate(type.toLowerCase())} ${getTime(
+            withSeconds,
+            location,
+        )}`;
     }
 }
 
-function getDateFullTime(type, length, location) {
+function getDateFullTime(type, withSeconds, location) {
     if (type === undefined) {
-        return `${getDate()} ${getFullTime(length, location)}`;
+        return `${getDate()} ${getFullTime(withSeconds, location)}`;
     } else if (
         type.toLowerCase() === 'mm/dd/yy' ||
         type.toLowerCase() === 'mm/dd/yyyy'
     ) {
         return `${getDate(type.toLowerCase())} ${getFullTime(
-            length,
+            withSeconds,
             location,
         )}`;
     } else if (
@@ -327,7 +336,7 @@ function getDateFullTime(type, length, location) {
         type.toLowerCase() === 'dd/mm/yyyy'
     ) {
         return `${getDate(type.toLowerCase())} ${getFullTime(
-            length,
+            withSeconds,
             location,
         )}`;
     } else if (
@@ -335,7 +344,7 @@ function getDateFullTime(type, length, location) {
         type.toLowerCase() === 'yyyy/mm/dd'
     ) {
         return `${getDate(type.toLowerCase())} ${getFullTime(
-            length,
+            withSeconds,
             location,
         )}`;
     }
@@ -361,7 +370,7 @@ function setClock() {
 
             const className = options.class;
             const type = options.type;
-            const length = options.length;
+            const withSeconds = options.withSeconds;
             const location = options.location;
             const time = options.time;
 
@@ -379,9 +388,12 @@ function setClock() {
                     timeElement.classList.add(`${className}-time`);
 
                     if (time === 'full') {
-                        timeElement.innerHTML = getFullTime(length, location);
+                        timeElement.innerHTML = getFullTime(
+                            withSeconds,
+                            location,
+                        );
                     } else {
-                        timeElement.innerHTML = getTime(length, location);
+                        timeElement.innerHTML = getTime(withSeconds, location);
                     }
 
                     timeElement.style.color = '#000';
@@ -394,11 +406,14 @@ function setClock() {
                     setInterval(() => {
                         if (time === 'full') {
                             timeElement.innerHTML = getFullTime(
-                                length,
+                                withSeconds,
                                 location,
                             );
                         } else {
-                            timeElement.innerHTML = getTime(length, location);
+                            timeElement.innerHTML = getTime(
+                                withSeconds,
+                                location,
+                            );
                         }
                     }, 1000);
                 });
@@ -412,9 +427,12 @@ function setClock() {
                     timeElement.classList.add(`${className}-time`);
 
                     if (time === 'full') {
-                        timeElement.innerHTML = getFullTime(location);
+                        timeElement.innerHTML = getFullTime(
+                            withSeconds,
+                            location,
+                        );
                     } else {
-                        timeElement.innerHTML = getTime(location);
+                        timeElement.innerHTML = getTime(withSeconds, location);
                     }
 
                     timeElement.style.color = '#000';
@@ -427,11 +445,14 @@ function setClock() {
                     setInterval(() => {
                         if (time === 'full') {
                             timeElement.innerHTML = getFullTime(
-                                length,
+                                withSeconds,
                                 location,
                             );
                         } else {
-                            timeElement.innerHTML = getTime(length, location);
+                            timeElement.innerHTML = getTime(
+                                withSeconds,
+                                location,
+                            );
                         }
                     }, 1000);
                 });
@@ -452,9 +473,12 @@ function setClock() {
                     timeElement.classList.add(`${className}-time`);
 
                     if (time === 'full') {
-                        timeElement.innerHTML = getFullTime(length, location);
+                        timeElement.innerHTML = getFullTime(
+                            withSeconds,
+                            location,
+                        );
                     } else {
-                        timeElement.innerHTML = getTime(length, location);
+                        timeElement.innerHTML = getTime(withSeconds, location);
                     }
 
                     timeElement.style.color = '#fff';
@@ -467,11 +491,14 @@ function setClock() {
                     setInterval(() => {
                         if (time === 'full') {
                             timeElement.innerHTML = getFullTime(
-                                length,
+                                withSeconds,
                                 location,
                             );
                         } else {
-                            timeElement.innerHTML = getTime(length, location);
+                            timeElement.innerHTML = getTime(
+                                withSeconds,
+                                location,
+                            );
                         }
                     }, 1000);
                 });
