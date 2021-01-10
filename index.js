@@ -9,11 +9,6 @@ const Clock = {
 };
 
 function getFullTime(length, location) {
-    console.log(length);
-    console.log(location);
-    console.log(length === 2);
-    console.log(length === 3);
-
     if (location === undefined || location === 'default') {
         if (length == null || length === 'default') {
             let d = new Date();
