@@ -446,7 +446,7 @@ function setClock() {
                     //box style
                     element.style.height = 'fit-content';
                     element.style.width = 'fit-content';
-                    element.style.width = '1em';
+                    element.style.padding = '1em';
                     element.style.background = '#212121';
                     element.style.borderRadius = '5px';
 
