@@ -1,21 +1,32 @@
 {
     "name": "global-clock",
-    "version": "1.3.6",
+    "version": "2.0.8",
     "description": "An Easy and lightweight package for getting time and date for any location!",
-    "main": "index.js",
+    "main": "",
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node ."
+        "start": "node .",
+        "git-publish": ""
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ItaiHammer/global-time.git"
     },
-    "author": "",
+    "keywords": [
+        "time",
+        "clock",
+        "global time",
+        "global clock",
+        "location time",
+        "time location",
+        "global time location"
+    ],
+    "author": "Itai Hammer",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/ItaiHammer/global-time/issues"
     },
-    "homepage": "https://github.com/ItaiHammer/global-time#readme"
+    "homepage": "https://github.com/ItaiHammer/global-time#readme",
+    "dependencies": {}
 }

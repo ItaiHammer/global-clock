@@ -15,7 +15,7 @@ For commonjs:
 ```
 const { Clock } = require('global-clock');
 
-Clock.getTime(parameters)
+Clock.getTime();
 ```
 
 For module:
@@ -23,12 +23,12 @@ For module:
 ```
 import { Clock } from 'global-clock';
 
-Clock.getTime(parameters)
+Clock.getTime();
 ```
 
-### **Options**
+### **Clock**
 
-Global Clock supports 4 options:
+Clock supports 5 options:
 
 -   `Clock.getTime(<parameters: location>)` - Returns time in the AM/PM format
 
@@ -43,9 +43,7 @@ EX:
 EX:
 
     ```
-
     Clock.getFullTime() // '17:00:00'
-
     ```
 
 -   `Clock.getDate(<parameters: type, location>)` - Returns the date
@@ -53,9 +51,7 @@ EX:
 EX:
 
     ```
-
     Clock.getDate() // '1/8/2021'
-
     ```
 
 -   `Clock.getDateTime(<parameters: type, location>)` - Returns the date and the time in the AM/PM format
@@ -63,9 +59,7 @@ EX:
 EX:
 
     ```
-
     Clock.getDateTime() // '1/8/2021 5:00:00 PM'
-
     ```
 
 -   `Clock.getDateFullTime(<parameters: type, location>)` - Returns the date and the time in military time
@@ -73,12 +67,10 @@ EX:
 EX:
 
     ```
-
     Clock.getDateTime() // '1/8/2021 17:00:00'
-
     ```
 
-### **Parameters**
+### **Clock Parameters**
 
 -   `location` _not required_, _not case sensitive_ - Location is the location where you want the time from.
 
@@ -135,3 +127,59 @@ Clock.getDate(type)
 Clock.getDate('dd/mm/yy') // 8/1/2021
 Clock.getDate ('dd/mm/yyyy') // 8/1/2021
 ```
+
+### **HTMLClock**
+
+**This does not work with pure HTML**
+
+**You would need to use something like Parcel or Webpack**
+
+HTMLClock supports 1 options:
+
+-   `HTMLClock.createClock(<object>)` - This creates a clock element
+
+EX:
+
+```
+- JS
+
+import { HTMLClock } from 'global-clock';
+
+const options = {
+    class: 'clock',
+    type: 'text',
+    time: 'normal'
+};
+
+HTMLClock.createClock(options);
+
+- HTML
+
+<div class="clock" ></div> <!-- the object that turns into the clock -->
+
+<div class="not-clock" ></div> <!-- NOT the object that turns into the clock -->
+```
+
+### **HTMLClock Object**
+
+-   `class` - This would be the class that would become the clock element
+
+-   `type` - This is the type of clock element you want
+
+    -   `text` - An invisible `<div></div>` element with a `<p></p>` element that says the time inside of it
+
+    -   `box` - A box with a `<p></p>` element that says the time inside of it
+
+    If you leave blank or `undefined` it will default to `text`
+
+-   `location` - The location that you want the time from
+
+    If you leave blank or `undefined` it will default to your current location
+
+-   `time` - Which type of time do you want
+
+    -   `normal` - Returns time in the AM/PM format
+
+    -   `full` - Returns time in military time
+
+    If you leave blank or `undefined` it will default to `normal`

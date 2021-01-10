@@ -1,4 +1,6 @@
-let Clock = {
+//*Clock
+
+const Clock = {
     getFullTime,
     getTime,
     getDate,
@@ -9,9 +11,18 @@ let Clock = {
 function getFullTime(location) {
     if (location === undefined) {
         let d = new Date();
-        let hour = d.getHours();
-        const minutes = d.getMinutes();
-        const seconds = d.getSeconds();
+        let hour =
+            String(d.getHours()).length === 1
+                ? `0${d.getHours()}`
+                : d.getHours();
+        const minutes =
+            String(d.getMinutes()).length === 1
+                ? `0${d.getMinutes()}`
+                : d.getMinutes();
+        const seconds =
+            String(d.getSeconds()).length === 1
+                ? `0${d.getSeconds()}`
+                : d.getSeconds();
 
         const time = `${hour}:${minutes}:${seconds}`;
 
@@ -258,4 +269,132 @@ function getDateFullTime(type, location) {
     }
 }
 
-export { Clock };
+//*HTMLClock
+const HTMLClock = {
+    createClock,
+};
+
+let HTMLClocks = [];
+
+function createClock(options) {
+    HTMLClocks.push(options);
+
+    setClock();
+}
+
+function setClock() {
+    if (HTMLClocks[0] != null) {
+        HTMLClocks.forEach((options) => {
+            const elements = document.querySelectorAll(`.${options.class}`);
+
+            const className = options.class;
+            const type = options.type;
+            const location = options.location;
+            const time = options.time;
+
+            delete options.class;
+            delete options.location;
+            delete options.type;
+
+            if (type == null) {
+                elements.forEach((element) => {
+                    element.style.display = 'flex';
+                    element.style.alignItems = 'center';
+                    element.style.justifyContent = 'center';
+
+                    const timeElement = document.createElement('div');
+                    timeElement.classList.add(`${className}-time`);
+
+                    if (time === 'full') {
+                        timeElement.innerHTML = getFullTime(location);
+                    } else {
+                        timeElement.innerHTML = getTime(location);
+                    }
+
+                    timeElement.style.color = '#fff';
+                    timeElement.style.fontFamily = 'arial';
+                    timeElement.style.fontSize = '1.5em';
+                    timeElement.style.fontWeight = '200';
+
+                    element.append(timeElement);
+
+                    setInterval(() => {
+                        if (time === 'full') {
+                            timeElement.innerHTML = getFullTime(location);
+                        } else {
+                            timeElement.innerHTML = getTime(location);
+                        }
+                    }, 1000);
+                });
+            } else if (type === 'text') {
+                elements.forEach((element) => {
+                    element.style.display = 'flex';
+                    element.style.alignItems = 'center';
+                    element.style.justifyContent = 'center';
+
+                    const timeElement = document.createElement('div');
+                    timeElement.classList.add(`${className}-time`);
+
+                    if (time === 'full') {
+                        timeElement.innerHTML = getFullTime(location);
+                    } else {
+                        timeElement.innerHTML = getTime(location);
+                    }
+
+                    timeElement.style.color = '#fff';
+                    timeElement.style.fontFamily = 'arial';
+                    timeElement.style.fontSize = '1.5em';
+                    timeElement.style.fontWeight = '200';
+
+                    element.append(timeElement);
+
+                    setInterval(() => {
+                        if (time === 'full') {
+                            timeElement.innerHTML = getFullTime(location);
+                        } else {
+                            timeElement.innerHTML = getTime(location);
+                        }
+                    }, 1000);
+                });
+            } else if (type === 'box') {
+                elements.forEach((element) => {
+                    element.style.display = 'flex';
+                    element.style.alignItems = 'center';
+                    element.style.justifyContent = 'center';
+
+                    //box style
+                    element.style.height = '3em';
+                    element.style.width = '9em';
+                    element.style.background = '#212121';
+                    element.style.borderRadius = '5px';
+
+                    const timeElement = document.createElement('div');
+                    timeElement.classList.add(`${className}-time`);
+
+                    if (time === 'full') {
+                        timeElement.innerHTML = getFullTime(location);
+                    } else {
+                        timeElement.innerHTML = getTime(location);
+                    }
+
+                    timeElement.style.color = '#fff';
+                    timeElement.style.fontFamily = 'arial';
+                    timeElement.style.fontSize = '1.5em';
+                    timeElement.style.fontWeight = '200';
+
+                    element.append(timeElement);
+
+                    setInterval(() => {
+                        if (time === 'full') {
+                            timeElement.innerHTML = getFullTime(location);
+                        } else {
+                            timeElement.innerHTML = getTime(location);
+                        }
+                    }, 1000);
+                });
+            }
+        });
+    }
+}
+
+export { Clock, HTMLClock };
