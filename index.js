@@ -117,6 +117,7 @@ function getTime(length, location) {
                 String(d.getHours()).length === 1
                     ? `0${d.getHours()}`
                     : d.getHours();
+            hour = hour === 0 || hour === '0' || hour === '00' ? '12' : hour;
             const minutes =
                 String(d.getMinutes()).length === 1
                     ? `0${d.getMinutes()}`
@@ -141,6 +142,7 @@ function getTime(length, location) {
                 String(d.getHours()).length === 1
                     ? `0${d.getHours()}`
                     : d.getHours();
+            hour = hour === 0 || hour === '0' || hour === '00' ? '12' : hour;
             const minutes =
                 String(d.getMinutes()).length === 1
                     ? `0${d.getMinutes()}`
