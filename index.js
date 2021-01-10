@@ -386,7 +386,7 @@ function setClock() {
                         timeElement.innerHTML = getTime(location);
                     }
 
-                    timeElement.style.color = '#fff';
+                    timeElement.style.color = '#000';
                     timeElement.style.fontFamily = 'arial';
                     timeElement.style.fontSize = '1.5em';
                     timeElement.style.fontWeight = '200';
@@ -419,7 +419,7 @@ function setClock() {
                         timeElement.innerHTML = getTime(location);
                     }
 
-                    timeElement.style.color = '#fff';
+                    timeElement.style.color = '#000';
                     timeElement.style.fontFamily = 'arial';
                     timeElement.style.fontSize = '1.5em';
                     timeElement.style.fontWeight = '200';
@@ -444,8 +444,9 @@ function setClock() {
                     element.style.justifyContent = 'center';
 
                     //box style
-                    element.style.height = '3em';
-                    element.style.width = '9em';
+                    element.style.height = 'fit-content';
+                    element.style.width = 'fit-content';
+                    element.style.width = '1em';
                     element.style.background = '#212121';
                     element.style.borderRadius = '5px';
 
