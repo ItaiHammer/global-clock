@@ -18,7 +18,7 @@ Then...
 
 For commonjs:
 
-```
+```js
 const { Clock } = require('global-clock');
 
 Clock.getTime();
@@ -26,7 +26,7 @@ Clock.getTime();
 
 For module:
 
-```
+```js
 import { Clock } from 'global-clock';
 
 Clock.getTime();
@@ -40,7 +40,7 @@ Clock supports 5 options:
 
 EX:
 
-    ```
+    ```js
     Clock.getTime() // '5:00:00 PM'
     ```
 
@@ -48,7 +48,7 @@ EX:
 
 EX:
 
-    ```
+    ```js
     Clock.getFullTime() // '17:00:00'
     ```
 
@@ -56,7 +56,7 @@ EX:
 
 EX:
 
-    ```
+    ```js
     Clock.getDate() // '1/8/2021'
     ```
 
@@ -64,7 +64,7 @@ EX:
 
 EX:
 
-    ```
+    ```js
     Clock.getDateTime() // '1/8/2021 5:00:00 PM'
     ```
 
@@ -72,7 +72,7 @@ EX:
 
 EX:
 
-    ```
+    ```js
     Clock.getDateTime() // '1/8/2021 17:00:00'
     ```
 
@@ -86,10 +86,10 @@ If the location is `undefined` the location would automaticly output to your cur
 
 EX:
 
-```
-Clock.getTime(location)
+```js
+Clock.getTime(location);
 
-Clock.getTime('california') // 5:00:00 PM
+Clock.getTime('california'); // 5:00:00 PM
 ```
 
 -   `type` _not required_, _not case sensitive_ - Type is used for dates, this is responsible for the order that the date is in.
@@ -100,27 +100,27 @@ Clock.getTime('california') // 5:00:00 PM
 
         Output:
 
-    ```
-    Clock.getDate('mm/dd/yy') // 1/8/2021
-    Clock.getDate('mm/dd/yyyy') // 1/8/2021
+    ```js
+    Clock.getDate('mm/dd/yy'); // 1/8/2021
+    Clock.getDate('mm/dd/yyyy'); // 1/8/2021
     ```
 
     -   `dd/mm/yy` or `dd/mm/yyyy`
 
         Output:
 
-    ```
-    Clock.getDate('dd/mm/yy') // 8/1/2021
-    Clock.getDate('dd/mm/yyyy') // 8/1/2021
+    ```js
+    Clock.getDate('dd/mm/yy'); // 8/1/2021
+    Clock.getDate('dd/mm/yyyy'); // 8/1/2021
     ```
 
     -   `yy/mm/dd` or `yyyy/mm/dd`
 
         Output:
 
-    ```
-    Clock.getDate('yy/mm/dd') // 2021/1/8
-    Clock.getDate('yyyy/mm/dd') // 2021/1/8
+    ```js
+    Clock.getDate('yy/mm/dd'); // 2021/1/8
+    Clock.getDate('yyyy/mm/dd'); // 2021/1/8
     ```
 
     If the type is `undefined` the date would automaticly output in this format `mm/dd/yyyy`
@@ -136,9 +136,9 @@ Clock.getDate ('dd/mm/yyyy') // 8/1/2021
 
 ### **HTMLClock**
 
-**This does not work with pure HTML and JS**
+**!** _This does not work with pure HTML and JS_
 
-**You would need to use something like Parcel or Webpack**
+_You would need to use something like Parcel or Webpack_
 
 HTMLClock supports 1 options:
 
@@ -146,32 +146,47 @@ HTMLClock supports 1 options:
 
 EX:
 
-```
-- JS
+```js
+// JS
 
 import { HTMLClock } from 'global-clock';
 
 const options = {
     class: 'clock',
     type: 'text',
-    time: 'normal'
+    time: 'normal',
 };
 
 HTMLClock.createClock(options);
+```
 
-- HTML
+```html
+// HTML
 
-<div class="clock" ></div> <!-- the object that turns into the clock -->
+<div class="clock"></div>
+<!-- the object that turns into the clock -->
 
-<div class="not-clock" ></div> <!-- NOT the object that turns into the clock -->
+<div class="not-clock"></div>
+<!-- NOT the object that turns into the clock -->
+```
 
-- RESULT
+```html
+// RESULT
 
-<div class="clock" style="display:flex;alignItems:center;justifyContent:center;" >
-    <p class="clock-time" style="color:#fff;font-family:arial;font-size:1.5em;font-weight:200;" ><The Time><p>
+<div
+    class="clock"
+    style="display:flex;alignItems:center;justifyContent:center;"
+>
+    <p
+        class="clock-time"
+        style="color:#fff;font-family:arial;font-size:1.5em;font-weight:200;"
+    >
+        The Time
+    </p>
+    <p></p>
 </div>
 
-<div class="not-clock" ></div>
+<div class="not-clock"></div>
 ```
 
 The `<p></p>` tag's class would always be the main class name and-time(in this case `clock-time`)
@@ -180,9 +195,9 @@ To overwrite the inline CSS you can use !important
 
 EX:
 
-```
+```css
 .clock {
-    background: #EEFFFF !important;
+    background: #eeffff !important;
 }
 
 .clock-time {
