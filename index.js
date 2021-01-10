@@ -381,9 +381,9 @@ function setClock() {
                     timeElement.classList.add(`${className}-time`);
 
                     if (time === 'full') {
-                        timeElement.innerHTML = getFullTime(location);
+                        timeElement.innerHTML = getFullTime(length, location);
                     } else {
-                        timeElement.innerHTML = getTime(location);
+                        timeElement.innerHTML = getTime(length, location);
                     }
 
                     timeElement.style.color = '#000';
