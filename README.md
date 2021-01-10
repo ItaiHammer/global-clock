@@ -189,7 +189,6 @@ HTMLClock.createClock(options);
     >
         The Time
     </p>
-    <p></p>
 </div>
 
 <div class="not-clock"></div>
