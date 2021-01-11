@@ -46,7 +46,7 @@ function getFullTime(withSeconds, location) {
             const time = `${hour}:${minutes}:${seconds}`;
 
             return time;
-        } else if (seconds === false) {
+        } else if (withSeconds === false) {
             let d = new Date();
             let hour =
                 String(d.getHours()).length === 1
@@ -74,7 +74,7 @@ function getFullTime(withSeconds, location) {
             time = time.substr(0, time.length - 3);
 
             return time;
-        } else if (seconds === false) {
+        } else if (withSeconds === false) {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             let time = d.substr(d.indexOf(' ') + 1, d.length - 10);
             time = time.substr(0, time.length - 6);
@@ -173,7 +173,7 @@ function getTime(withSeconds, location) {
             const time = d.substr(d.indexOf(' ') + 1, d.length);
 
             return time;
-        } else if (seconds === true) {
+        } else if (withSeconds === true) {
             let d = new Date().toLocaleString('en-US', { timeZone: location });
             const pre = d.substr(d.indexOf(' ') + 1, d.length);
             const time = `${pre.substr(0, pre.length - 6)} ${pre.substr(
