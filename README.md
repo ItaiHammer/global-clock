@@ -78,7 +78,7 @@ Clock.getDateFullTime(); // '1/8/2021 17:00:00'
 
 ### **Clock Parameters**
 
--   `withSeconds` _not required_, _not case sensitive_ - How long the time is
+-   `withSeconds` _not required_, _not case sensitive_ - Seconds included?
 
     There are 2 different possible values for length:
 
@@ -157,6 +157,11 @@ Clock.getDate('dd/mm/yyyy'); // 8/1/2021
 ```
 
 If the type is `undefined` the date would automaticly output in this format `mm/dd/yyyy`
+<br/><br/>
+An Example of `global-clock` being used:
+
+https://codesandbox.io/s/global-clock-example-qx4fc?file=/src/App.js
+<br/><br/>
 
 ### **HTMLClock**
 
@@ -245,7 +250,7 @@ EX:
 
     If you leave blank or `undefined` it will default to `text`
 
--   `length` _not required_, _not case sensitive_ - How long you want the time to be
+-   `withSecods` _not required_, _not case sensitive_ - Seconds included?
 
 -   `location` _not required_, _not case sensitive_ - The location that you want the time from
 
