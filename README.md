@@ -41,7 +41,7 @@ Clock supports 5 options:
 EX:
 
 ```js
-Clock.getTime(); // '5:00:00 PM'
+Clock.getTime(); // 5:00:00 PM
 ```
 
 -   `Clock.getFullTime(<parameters: withSeconds, location>)` - Returns time in military time
@@ -49,7 +49,7 @@ Clock.getTime(); // '5:00:00 PM'
 EX:
 
 ```js
-Clock.getFullTime(); // '17:00:00'
+Clock.getFullTime(); // 17:00:00
 ```
 
 -   `Clock.getDate(<parameters: type, location>)` - Returns the date
@@ -57,7 +57,7 @@ Clock.getFullTime(); // '17:00:00'
 EX:
 
 ```js
-Clock.getDate(); // '1/8/2021'
+Clock.getDate(); // 1/8/2021
 ```
 
 -   `Clock.getDateTime(<parameters: type, withSeconds, location>)` - Returns the date and the time in the AM/PM format
@@ -65,7 +65,7 @@ Clock.getDate(); // '1/8/2021'
 EX:
 
 ```js
-Clock.getDateTime(); // '1/8/2021 5:00:00 PM'
+Clock.getDateTime(); // 1/8/2021 5:00:00 PM
 ```
 
 -   `Clock.getDateFullTime(<parameters: type, withSeconds, location>)` - Returns the date and the time in military time
@@ -73,14 +73,14 @@ Clock.getDateTime(); // '1/8/2021 5:00:00 PM'
 EX:
 
 ```js
-Clock.getDateFullTime(); // '1/8/2021 17:00:00'
+Clock.getDateFullTime(); // 1/8/2021 17:00:00
 ```
 
 ### **Clock Parameters**
 
 -   `withSeconds` _not required_, _not case sensitive_ - Seconds included?
 
-    There are 2 different possible values for length:
+    There are 2 different possible values for withSeconds:
 
 -   `true` - It would return the time in this format: `5:00:00 PM`
 
@@ -98,7 +98,7 @@ EX:
 Clock.getDate(false); // 5:00 PM
 ```
 
-If the length is `undefined` the length would automaticly output in this format `5:00:00 PM`
+If the withSeconds is `undefined` time would automaticly output in this format `5:00:00 PM`
 
 -   `location` _not required_, _not case sensitive_ - Location is the location where you want the time from.
 
